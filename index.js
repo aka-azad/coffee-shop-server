@@ -76,7 +76,7 @@ async function run() {
     app.delete("/coffee/:id", async (req, res) => {
       const id = req.params.id;
       const coffee = { _id: new ObjectId(id) };
-      
+
       const result = await coffeeCollection.deleteOne(coffee);
       res.send(result);
     });
@@ -107,7 +107,7 @@ async function run() {
       const newDetails = req.body;
       const id = req.params.id;
       const filter = { _id: new ObjectId(id) };
-      
+
       const options = { upsert: true };
       const updatedData = {
         $set: newDetails,
@@ -123,7 +123,7 @@ async function run() {
       const newDetails = req.body;
       const email = req.body.email;
       const filter = { email: email };
-     
+
       const updatedData = {
         $set: newDetails,
       };
